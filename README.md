@@ -1,6 +1,12 @@
 # pls donate utils
 Utilities to go with my [PLS DONATE script](https://github.com/tzechco/roblox-scripts/tree/main/PLS%20DONATE)
 
+## Features
+- Transfer Robux from your alts to your main account (Requires your main account to have a [T-Shirt](https://www.roblox.com/develop?View=2) on sale)
+- Gets the total amount of Robux in your accounts
+- Set up gamepasses for new accounts to save you a lot of time
+
+
 ## How to use?
 1. Download the repo either using `git clone` or [this link](https://github.com/tzechco/pls-donate-utils/archive/refs/heads/main.zip)
 2. Extract the files if necessary
