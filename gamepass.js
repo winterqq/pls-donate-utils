@@ -59,6 +59,8 @@ let gamepassPrices = [5, 10, 25, 50, 100, 250, 1000, 5000, 10000, 100000, 100000
 		if (gamepassold.length == gamepass.length) {
 			console.log("rate limited, retrying in 60 seconds");
 			await new Promise((r) => setTimeout(r, 60000));
+		} else {
+			console.log(`created gamepass ${gamepass.length}/${gamepassPrices.length}`)
 		}
 		gamepassold = await noblox.getGamePasses(gameId);
 	}
