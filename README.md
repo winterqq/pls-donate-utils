@@ -21,9 +21,11 @@ There are multiple ways to retrive your token.
 #### Method 1: Roblox Account Manager
 1. Install [Roblox Account Manager](https://github.com/ic3w0lf22/Roblox-Account-Manager)
 2. Click **Add Account** and login to Roblox
-3. Right click your user and select **Copy Security Token**
-4. Run `run.bat` and select token management then select add
-5. Paste your token with quotation marks around it (" ")
+3. Open the settings menu and in the Developer tab toggle Enable Developer Mode
+4. Relaunch Roblox Account Manager
+5. Right click your user and select **Copy Security Token**
+6. Run `run.bat` and select token management then select add
+7. Paste your token with quotation marks around it (" ")
 
 #### Method 2: EditThisCookie Extension
 1. Install [EditThisCookie](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg) for Google Chrome or Chromium based browsers.
