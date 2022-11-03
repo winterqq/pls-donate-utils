@@ -27,7 +27,7 @@ console.log("this may take a few minutes...\n\n");
 			} catch (e) {}
 		});
 		if (robux) {
-			if (robux[0] > 0) {
+			if (robux[0] > 0 || robux[1] > 0) {
 				total.push(parseInt(robux[1]));
 				pendingTotal.push(parseInt(robux[0]));
 				console.log(x.cyan);
