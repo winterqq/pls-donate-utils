@@ -19,7 +19,7 @@ if not exist node_modules\ npm i
 if not exist tokens.json (
     echo welcome, add a roblox token to start
     pause
-    goto addtoken
+    goto token
 )
 cls
 echo pls donate utils by tzechco
@@ -71,20 +71,28 @@ cls
 echo add/remove token
 echo.
 echo [1] add
-echo [2] remove
-echo [3] list
+echo [2] import from roblox account manager
+echo [3] remove
+echo [4] list
 echo.
 set /p top=
 if %top% == 1 goto addtoken
-if %top% == 2 goto removetoken
-if %top% == 3 goto listtoken
+if %top% == 2 goto import
+if %top% == 3 goto removetoken
+if %top% == 4 goto listtoken
 goto end
 
 :addtoken
 cls
 echo enter your roblox token inside of ""
 set /p token=
+cls
 node ./addToken.js %token%
+goto end
+
+:import
+cls
+node ./import.js
 goto end
 
 :removetoken

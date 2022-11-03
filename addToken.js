@@ -1,7 +1,6 @@
 const noblox = require("noblox.js");
 const fs = require("fs");
 let retry = true;
-console.clear();
 async function validate() {
 	try {
 		let currentUser = await noblox.setCookie(process.argv[2]);
@@ -18,10 +17,8 @@ async function validate() {
 	} catch (e) {
 		if (retry) {
 			retry = false;
-			console.clear();
 			console.log("invalid cookie or rate limited\nretrying in 60 seconds...");
 			await new Promise((r) => setTimeout(r, 60000));
-			console.clear();
 			validate();
 		} else {
 			return console.log("invalid cookie");
