@@ -19,6 +19,8 @@ Tokens (or cookies) are what is used by the Roblox website to store your session
 
 There are multiple ways to retrive your token.
 #### Method 1: Roblox Account Manager (Automatic)
+⚠This will import EVERY account you have inside Roblox Account Manager⚠
+
 1. Copy the path where Roblox Account Manager is located
 2. Run `run.bat` and select **token management** 
 3. Select **import from roblox account manager**
