@@ -7,8 +7,15 @@ if (!file[process.argv[2]]) return console.log("user not found");
 let item = process.argv[3];
 (async () => {
 	for (let x in file) {
-		currentUser = await noblox.setCookie(file[x]);
-		console.log(currentUser.UserName + ": " + currentUser.RobuxBalance);
+		try {
+			currentUser = await noblox.setCookie(file[x]);
+			console.log(currentUser.UserName + ": " + currentUser.RobuxBalance);
+		} catch (e) {
+			console.log("rate limited, waiting 60 seconds...");
+			await new Promise((r) => setTimeout(r, 60000));
+			currentUser = await noblox.setCookie(file[x]);
+			console.log(currentUser.UserName + ": " + currentUser.RobuxBalance);
+		}
 		if (currentUser.RobuxBalance > 4) {
 			//too lazy to do this properly
 			try {
