@@ -19,22 +19,23 @@ console.log("this may take a few minutes...\n\n");
 		const page = await browser.newPage();
 		await page.setCookie(...cookies);
 		await page.goto("https://www.roblox.com/transactions", { waitUntil: "networkidle0" });
-		let robux = await page.evaluate(async () => {
-			try {
-				let pending = document.getElementsByClassName("amount icon-robux-container text-disabled")[0].innerText;
-				let current = document.getElementsByClassName("rbx-text-navbar-right text-header")[0].innerText;
-				return [pending, current];
-			} catch (e) {}
-		});
-		if (robux) {
-			if (robux[0] > 0 || robux[1] > 0) {
-				total.push(parseInt(robux[1]));
-				pendingTotal.push(parseInt(robux[0]));
-				console.log(x.cyan);
-				console.log(`Current: $${robux[1]}`);
-				console.log(`Pending: $${robux[0]}`.grey);
-			}
+		let robux = [];
+		async function getBalance() {
+			robux = await page.evaluate(async () => {
+				try {
+					let pending = document.getElementsByClassName("amount icon-robux-container text-disabled")[0] ? document.getElementsByClassName("amount icon-robux-container text-disabled")[0].innerText : "0";
+					let current = document.getElementsByClassName("rbx-text-navbar-right text-header")[0] ? document.getElementsByClassName("rbx-text-navbar-right text-header")[0].innerText : "0";
+					return [pending.replace(/\,/g, ""), current.replace(/\,/g, "")];
+				} catch (e) {}
+			});
+			if (!robux) await getBalance();
 		}
+		await getBalance();
+		pendingTotal.push(parseInt(robux[0]));
+		total.push(parseInt(robux[1]));
+		console.log(x.cyan);
+		console.log(`Current: $${robux[1]}`);
+		console.log(`Pending: $${robux[0]}`.grey);
 		await browser.close();
 	}
 	let totalAdded = total.reduce((a, b) => a + b, 0);
