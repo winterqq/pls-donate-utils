@@ -34,8 +34,8 @@ console.log("this may take a few minutes...\n\n");
 		pendingTotal.push(parseInt(robux[0]));
 		total.push(parseInt(robux[1]));
 		console.log(x.cyan);
-		console.log(`Current: $${robux[1]}`);
-		console.log(`Pending: $${robux[0]}`.grey);
+		console.log(`Current: ${robux[1]} R$`);
+		console.log(`Pending: ${robux[0]} R$`.grey);
 		await browser.close();
 	}
 	let totalAdded = total.reduce((a, b) => a + b, 0);
