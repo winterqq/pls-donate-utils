@@ -7,6 +7,7 @@ if (!file[process.argv[2]]) return console.log("user not found");
 let item = process.argv[3];
 (async () => {
 	for (let x in file) {
+		if (x == process.argv[2]) return;
 		try {
 			currentUser = await noblox.setCookie(file[x]);
 			console.log(currentUser.UserName + ": " + currentUser.RobuxBalance);
