@@ -34,14 +34,17 @@ console.log("this may take a few minutes...\n\n");
 		pendingTotal.push(parseInt(robux[0]));
 		total.push(parseInt(robux[1]));
 		console.log(x.cyan);
-		console.log(`Current: $${robux[1]}`);
-		console.log(`Pending: $${robux[0]}`.grey);
+		console.log(`Current: ${robux[1]} R$`);
+		console.log(`Pending: ${robux[0]} R$`.grey);
 		await browser.close();
 	}
 	let totalAdded = total.reduce((a, b) => a + b, 0);
 	let pendingTotalAdded = pendingTotal.reduce((a, b) => a + b, 0);
 	console.log("\nTotal".cyan);
-	console.log(`Current: $${totalAdded}`);
-	console.log(`Pending: $${pendingTotalAdded}`.grey);
-	console.log(`$${totalAdded + pendingTotalAdded}`.green);
+	console.log(`Current: ${totalAdded} R$`);
+	console.log(`Pending: ${pendingTotalAdded} R$`.grey);
+	let allTotal = totalAdded + pendingTotalAdded;
+	console.log(`${allTotal} R$`.green);
+	console.log(`\nAfter Transfer: ${allTotal * 0.7} R$`)
+	
 })();
